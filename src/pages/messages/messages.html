@@ -1,0 +1,43 @@
+<ion-content padding>
+
+    <div class="wrapper-users">
+        
+        <div class="header-users">
+
+            <div class="user">
+                    <h3>USERS : {{numberOfUsers}} </h3>
+            </div>
+            <div class="search">
+                    <ion-searchbar
+  [(ngModel)]="searchTerm"
+  [showCancelButton]="shouldShowCancel"
+  (ionChange)="onInput($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
+            </div>
+            
+        </div>
+
+        <div class="users">
+            <div class="user-info" *ngFor="let item of filterData " >
+                <ion-card *ngIf="item.name !=''" (click)="review(item?.name, item?.lastName, item?.email,item.key)" id="card">
+                    <ion-card-header id="name">
+                      {{item?.name}}  {{item?.lastName}}
+                    </ion-card-header>
+                    <ion-card-content>
+
+                      <div class="messageIn" *ngIf="item.checkPoint == 1 " >
+                        <ion-icon id="in" name="mail"></ion-icon>
+                      </div>
+                      <div class="messageRead" *ngIf="item.checkPoint == 0 ">
+                        <ion-icon id="open" name="mail-open"></ion-icon>
+                      </div>
+
+                    </ion-card-content>
+                  </ion-card>
+            </div>
+
+        </div>
+    </div>
+</ion-content>
+ 

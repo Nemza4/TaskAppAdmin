@@ -1,0 +1,25 @@
+
+
+
+<ion-content padding>
+
+  <div class="retake-div">
+    <ion-row>
+      <ion-col>
+          <div class="testName">
+              {{testToRetake}}
+          </div>
+      </ion-col>
+    </ion-row>
+      
+    
+    <div class="test-input-button">
+        <ion-item>
+            <ion-label color="primary">Enter your email:</ion-label>
+            <ion-input placeholder="Text Input" [(ngModel)]="email"  ></ion-input>
+          </ion-item>
+        
+          <button ion-button block (click)="reTake()" >Re-take</button>
+    </div>
+  </div>
+</ion-content>

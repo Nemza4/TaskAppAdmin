@@ -1,0 +1,77 @@
+
+
+<ion-content padding>
+
+      <div class="dashboard">
+            Admin Dashboard
+      </div>
+      
+        <div class="users-dive">
+
+            <canvas width="500px" height="300px" id="pieChart"></canvas>
+        </div>
+      
+        <div class="logIn">
+                <canvas width="150px" height="150px" id="lineChart"></canvas>
+        </div>
+      
+        <div class="test-section">
+            <div class="test-name-header">
+                <h2>Complied Tests</h2>
+            </div>
+            <div>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col *ngFor="let testName of myData; let i = index " col-8 col-xl-2 col-lg-3 col-md-4>
+                        <ion-card>
+                            <ion-card-content>
+
+                                <ion-row>
+                                    <ion-col>
+                                            <div class="test-name-div">
+                                                    <p>{{testName}}</p>
+                                            </div>
+                                    </ion-col>
+                                    <ion-col>
+                                            <button clear ion-button small (click)="presentActionSheet( testName )" >
+                                                    <ion-icon name="settings"></ion-icon>
+                                                </button>
+                                    </ion-col>
+                                </ion-row>
+                            
+
+                            
+
+                            <button ion-button small  clear (click)="displaySampleMarks(i)" >Sample marks?</button>
+                            
+                                <div *ngIf=" i == cardClicked ">
+                                        <div *ngFor="let user of usersWhoCompletedTestList ">
+                                                <div *ngIf = " user.testName == testName">
+                                                     {{user?.firstName}}  {{user?.lastName}} {{user?.marks}}%<br>
+                                                </div>
+                                             </div>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+
+        
+        <br><br>
+        <table>
+                <tr >
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                </tr>
+                <tr *ngFor=" let user of registeredUsersList">
+                  <td>{{user?.name}}</td>
+                  <td>{{user?.lastName}}</td>
+                </tr>
+              </table>
+      
+
+</ion-content>

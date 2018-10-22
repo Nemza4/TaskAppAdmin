@@ -1,0 +1,131 @@
+
+
+<ion-content padding id = "bg">
+    
+    <div class="task-content">
+      
+        <div class="form-div" *ngIf="questions">
+           <form
+      [formGroup]="form">
+   	  <ion-list
+   	     margin-bottom>
+         <ion-item
+            margin-bottom
+            no-lines>
+            <ion-label stacked id="taskNm">Task Name:</ion-label>
+
+            <ion-input
+               type="text"
+               maxlength="40"
+               formControlName="taskName" id="taskNme"></ion-input>
+
+               
+
+            
+            
+         </ion-item>
+
+
+         <ion-label id="name">Time to complete task:</ion-label>
+            <ion-row>
+                <ion-col>
+                        <ion-input
+                        type="number"
+                        maxlength="40"
+                        min="10"
+                        step="1"
+                        formControlName="timer"></ion-input>
+                </ion-col>
+                
+                <ion-col>
+                    <ion-select formControlName="timerType" >
+                        <ion-option value="Seconds">Seconds</ion-option>
+                        <ion-option value="Minutes">Minutes</ion-option>
+                        <ion-option value="Hour">Hour</ion-option>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+
+            <br>
+	     <div
+	        formArrayName="additional"
+            margin-bottom>
+            
+            <section
+               [formGroupName]="i"
+               *ngFor="let tech of form.controls.additional.controls; let i = index">
+               <ion-item-group>
+               	  <ion-item-divider color="light">Question #{{ i + 1 }}</ion-item-divider>
+                  <ion-item>
+                     <ion-label stacked>Question:</ion-label>
+                     <ion-input
+                        type="text"
+                        maxlength="100"
+                        formControlName="question"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label stacked>Question type</ion-label>
+                      <ion-select formControlName="qtype" >
+                        <ion-option value="FIN">Fill in</ion-option>
+                        <ion-option value="TF">True or false</ion-option>
+                      </ion-select>
+                  </ion-item>
+                  
+                  <ion-item>
+                      <ion-label stacked>Answer:</ion-label>
+                    <ion-input  formControlName="answer"></ion-input>
+                  </ion-item>
+                  
+                  <span
+                     float-right
+                     ion-button
+                     icon-left
+                     clear
+                     *ngIf="form.controls.additional.length > 1"
+                     (click)="removeInputField(i)">
+                     <ion-icon name="close"></ion-icon>
+                     Remove
+                  </span>
+               </ion-item-group>
+            </section>
+         </div>
+
+
+         <span
+            ion-button
+            float-left
+            icon-left
+            clear
+            (click)="addNewInputField()">
+               <ion-icon name="add"></ion-icon>
+               Add a new Question
+         </span>
+
+
+        </ion-list>
+        
+         
+   </form>
+
+
+   <button
+   	     ion-button
+   	     block
+   	     margin-top
+   	     color="primary"
+   	     text-center
+   	     [disabled]="!form.valid" (click)="manage(form.value)">Done!</button>
+
+        </div>
+
+
+    </div>
+
+    <div class="publish-div" *ngIf="!questions">
+        <ion-row>
+          <button ion-button id="cancel" clear (click)="cancel()" ><ion-icon name="close"></ion-icon></button>
+        </ion-row>
+        <button id="publish" ion-button block (click)="publish()">Publish</button>
+    </div>
+</ion-content>

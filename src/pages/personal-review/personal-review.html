@@ -1,0 +1,19 @@
+
+
+
+<ion-content padding>
+
+  <div class="cont">
+      <button ion-button clear (click)="backButton()"><ion-icon id="arrow"name="arrow-round-back"></ion-icon></button>
+      <h4>{{name}}</h4>
+      <ion-card *ngFor="let item of arrData">
+        
+          Marks : {{item?.marks}}<br> TaskName :  {{item?.taskName}} <br>
+          Coments :{{item?.message}}<br>
+          Ratings : {{item?.rating}}
+        
+      </ion-card>
+    
+
+  </div>
+</ion-content>

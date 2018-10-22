@@ -1,0 +1,80 @@
+
+<ion-content padding>
+    <div class="side-nav" *ngIf="!logIn">
+
+        <nav>
+          <ul>
+            <li>
+                <i (click)= "page('analytics')" >
+                    <ion-icon name="pulse"></ion-icon>
+                </i>
+                <a (click)= "page('analytics')">
+                    <span><i ></i></span>
+                    <span>
+                        <button ion-button id = "btn"  clear>Analytics</button>
+                    </span>
+                </a>
+            </li>
+    
+    
+            <li>
+    
+            <i (click)= "page('mail')" >
+                <ion-icon name="person"></ion-icon>
+            </i>
+              <a (click)= "page('mail')">
+                <span><i ></i></span>
+                <span>
+                    <button ion-button id = "btn" clear>Messages</button>
+                </span>
+                
+                
+              </a>
+            </li>
+    
+            <li>
+    
+                <i (click)= "page('add')" >
+                    <ion-icon name="add"></ion-icon>
+                </i>
+                <a  (click)="page('add')">
+                    <span><i></i></span>
+                    <span>
+                        <button ion-button id = "btn" clear>Add Task</button>
+                    </span>
+                </a>
+                </li>
+          </ul>
+        </nav>
+        
+     </div>
+
+     <!-- <div class="logIn-div" >
+         
+<ion-grid>
+        <ion-row justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                <div text-center>
+                    <h4>Login Form</h4>
+                </div>
+                <div padding>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Username" [(ngModel)]="Username" ></ion-input>
+                    </ion-item>
+    
+                    <ion-item>
+                        <ion-input type="password" placeholder="Password" [(ngModel)]="Password"></ion-input>
+                    </ion-item>
+                </div>
+    
+                <div padding>
+                    <button ion-button block size="large" (click)="logInAdmin()"  expand="block">Login</button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+     </div> -->
+     
+    
+     <ion-nav [root]="rootPage"></ion-nav>
+</ion-content>

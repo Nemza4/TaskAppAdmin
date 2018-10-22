@@ -1,0 +1,22 @@
+page-retake {
+
+    .retake-div{
+        width: 50%;
+        margin-left: 30%;
+        margin-top: 10%;
+        height: auto;
+        background-color: white;
+    }
+    .testName{
+        height: 35px;
+        text-align: center;
+        font-size: 1.2em;
+        padding: 5px;
+    }
+    .test-input-button{
+        height: auto;
+    }
+    ion-row{
+        border-bottom: 1px solid blue;
+    }
+}

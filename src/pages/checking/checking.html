@@ -1,0 +1,84 @@
+<!--
+  Generated template for the CheckingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>checking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="con">
+      
+   <form
+   [formGroup]="form"
+   (ngSubmit)="manage(form.value)">
+    <ion-list
+       margin-bottom radio-group>
+     
+    <div
+       formArrayName="additional"
+         margin-bottom>
+         
+         <section
+            [formGroupName]="i"
+            *ngFor="let tech of form.controls.additional.controls; let i = index">
+
+            <ion-item-group>
+                
+               <ion-item *ngIf="adminTask[i]?.questionType == 'FIN'">
+                  <ion-label stacked id="question">{{adminTask[i]?.question}}</ion-label>
+                  <ion-input
+                     type="text"
+                     maxlength="50"
+                     formControlName="answer"></ion-input>
+               </ion-item>
+
+               <ion-row radio-group  formControlName="answer" *ngIf="adminTask[i]?.questionType == 'TF'">
+                <ion-item no-lines>
+                  <h2>{{adminTask[i]?.question}}</h2>
+                </ion-item>
+                
+                <ion-col col-4>
+                  <ion-item no-lines>
+                    <ion-label>
+                      TRUE</ion-label>
+                    <ion-radio value="true"></ion-radio>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                  <ion-item no-lines>
+                    <ion-label>
+                      FALSE</ion-label>
+                    <ion-radio value="false"></ion-radio>
+                  </ion-item>
+                </ion-col>
+                
+              </ion-row>
+               
+
+            </ion-item-group>
+         </section>
+
+         
+        
+      </div>
+
+     </ion-list>
+     
+      <button
+       ion-button
+       block
+       margin-top
+       color="primary"
+       text-center>Submit!</button>
+    </form>
+
+  </div>
+</ion-content>

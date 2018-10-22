@@ -1,0 +1,39 @@
+page-personal-review {
+    .content{
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(231, 248, 248);
+
+    }
+    .cont{
+        border: 1px solid red;
+        margin-left: 30%;
+        margin-top: 6%;
+        height: auto;
+        width: 50%;
+        padding: 20px;
+        background-color: rgb(218, 231, 231);
+        justify-content: center;
+    }
+    .header{
+        margin: auto;
+        padding: 6px;
+        width: 43%;
+        height: auto;
+    }
+    .card{
+        height: auto;
+        padding: 5px;
+    }
+
+    h4{
+        margin-left: 40%;
+    }
+    button{
+        width: 45px;
+    }
+    ion-icon {
+        font-size: 35px; //Preferred size here
+        color: red;
+    }
+}
